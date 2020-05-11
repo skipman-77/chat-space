@@ -5,6 +5,8 @@
 |email|integer|null: false|
 |password|integer|null: false|
 
+### Association
+- belongs_to :user
 
 ## messageテーブル
 
@@ -20,7 +22,10 @@
 
 ## groupテーブル
 |Column|Type|Options|
-|user|
+|group_name|null: false, foreign_key: true|
+
+### Association
+　belongs_to :group
 
 
 ## groups_usersテーブル
