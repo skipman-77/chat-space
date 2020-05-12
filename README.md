@@ -26,7 +26,7 @@
 
 ### Association
 　belongs_to :group
-
+ has_many :users
 
 ## groups_usersテーブル
 
@@ -34,3 +34,7 @@
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
+class User <ActiveRecord::Base
+ has_many :users,through: :groups_users
+ has_many :group_users
+end
