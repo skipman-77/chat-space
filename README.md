@@ -15,7 +15,7 @@ has_many :messages
 |colum|Type|Options|group|
 |user_id|references|null: false, foreign_key: true|
 |text|string|null: false|
-|image|string|null: false|
+|image|string|
 |group_id|references|null: false, foreign_key: true|
 
 ### Association
