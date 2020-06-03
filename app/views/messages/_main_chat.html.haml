@@ -2,13 +2,16 @@
   .main-chat__main-top
     .main-chat__main-top__left-box
       .main-chat__main-top__left-box__Name
-        test
+        = @group.name
       .main-chat__main-top__left-box__Member
-        Member : masa 
+        - @group.users.each do |user|
+          = user.name
     .main-chat__main-top__right-box
-      = link_to "#" do
+      = link_to edit_group_path(@group.id) do
         Edit
-    
+
+  -# .messages
+  -#   = render @messages  
     
   .main-chat__message
     .main-chat__message__left-box
@@ -27,13 +30,38 @@
       今日は夜から雨
 
   .form
-    %form.new__message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input.input-box__text{placeholder:"Type a message"}
-          .input-box__text__img
-            %label{class: "input-box__img"}
-              = icon('fas','image')
-              %input{type: "file", class:"input-box__img__file"}
-      %button.new__message__submit 送信する
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        .input-box__text__img
+          = f.label :image, class: 'input-box__img' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class:'new_message__submit'
+
+  
+
+  -# .message
+  -#   .upper-message
+  -#     .upper-message__user-name
+  -#       = message.user.name
+  -#     .upper-message__date
+  -#       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  -#   .lower-message
+  -#     - if message.content.present?
+  -#       %p.lower-message__content
+  -#         = message.content
+  -#     = image_tag message.image.url, class: 'lower-message__image' if message.image.present? 
+  
+
+  -# .form
+  -#   %form.new__message
+  -#     .input-box
+  -#       %input.input-box__text{placeholder:"Type a message"}
+  -#       .input-box__text__img
+  -#         %label{class: "input-box__img"}
+  -#           = icon('fas','image')
+  -#           %input{type: "file", class:"input-box__img__file"}
+  -#     %button.new__message__submit 送信する
 
 

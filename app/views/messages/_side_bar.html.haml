@@ -11,8 +11,19 @@
           = icon('fas', 'cog', class: 'icon')
  
   .side-bar__side-content
-    .side-bar__side-bigbox
-      .side-bar__techcamp
-        techcamp
-      .side-bar__message
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .side-bar__side-bigbox
+        = link_to group_messages_path(group) do
+          .side-bar__techcamp
+            = group.name
+          .side-bar__message
+            = group.show_last_message
+  
+  -# .groups
+  -#   - current_user.groups.each do |group|
+  -#     .group
+  -#       = link_to group_messages_path(group) do
+  -#         .group__name
+  -#           = group.name
+  -#         .group__message
+  -#           メッセージはまだありません
