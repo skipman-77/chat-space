@@ -4,16 +4,16 @@ $(function(){
       var html =
       
       `<div class="message">
-          <div class="main-chat__message__left-box">
-            <div class="main-chat__message__left-box__name">
+          <div class="main-chat__messages__left-box">
+            <div class="main-chat__messages__left-box__name">
               ${message.user_name}
             </div>
-            <div class="main-chat__message__left-box__message">
+            <div class="main-chat__messages__left-box__message">
               ${message.created_at}
             </div>
           </div>
-          <div class="main-chat__message__right-box">
-            <p class="main-chat__message__right-box">
+          <div class="main-chat__messages__right-box">
+            <p class="main-chat__messages__right-box">
               ${message.content}
             </p>
           </div>
@@ -23,16 +23,16 @@ $(function(){
     } else {
       var html =
        `<div class="message">
-          <div class="main-chat__message__left-box-under">
-            <div class="main-chat__message__left-box-under__name">
+          <div class="main-chat__messages__left-box">
+            <div class="main-chat__messages__left-box__name">
               ${message.user_name}
             </div>
-            <div class="main-chat__message__left-box-under__message">
+            <div class="main-chat__messages__left-box__message">
               ${message.created_at}
             </div>
           </div>
-          <div class="main-chat-message">
-            <p class="message__right-box">
+          <div class="main-chat__messages__right-box">
+            <p class="main-chat__messages__right-box">
               ${message.content}
             </p>
           </div>
@@ -58,13 +58,13 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.main-chat__message').append(html);
+      $('.main-chat__messages').append(html);
       $('form')[0].reset();
-      $('.main-chat__message').animate({ scrollTop: $('.main-chat__message')[0].scrollHeight});
+      $('.main-chat__messages').animate({ scrollTop: $('.main-chat__messages')[0].scrollHeight},50);
       $(".new_message__submit").prop("disabled", false);
     })
-    .fail(function() {
-      alert("メッセージ送信に失敗しました");
-  });
+      .fail(function() {
+        alert("メッセージ送信に失敗しました");
+    });
   });
 });
