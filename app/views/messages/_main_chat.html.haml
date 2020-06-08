@@ -10,24 +10,10 @@
       = link_to edit_group_path(@group.id) do
         Edit
 
-  -# .messages
-  -#   = render @messages  
+  .messages
+    = render @messages  
     
-  .main-chat__message
-    .main-chat__message__left-box
-      .main-chat__message__left-box__name
-        masa
-      .main-chat__message__left-box__message
-        2019/11/20(Wed) 17:43:01
-    .main-chat__message__right-box
-      おはよう！
-    .main-chat__message__left-box-under
-      .main-chat__message__left-box-under__name
-        masa
-      .main-chat__message__left-box-under__message
-        2019/11/20(Wed) 17:43:34
-    .main-chat__message__right-box
-      今日は夜から雨
+ 
 
   .form
     = form_for [@group, @message] do |f|
