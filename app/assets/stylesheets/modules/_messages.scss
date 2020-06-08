@@ -68,6 +68,7 @@ a {
 .main-chat {
   width: calc(100vw - 300px);
   float: left;
+  height: 100vh;
 
   &__main-top {
     height: 100px;
@@ -103,19 +104,19 @@ a {
     } 
   }  
     
-  &__message {
+  &__messages {
     height: calc(100vh - 190px);
     padding: 46px 40px;
     background-color: #fafafa;
     overflow: scroll;
     &__left-box {
-      padding-top: 35px;
+      padding-top: 46px;
       display: flex;
     
       &__name {
         font-size: 16px;
         color: #333333;
-        padding-bottom: 12px;
+        
       }
       &__message {
         font-size: 12px;
@@ -129,7 +130,7 @@ a {
     }
 
     &__left-box-under {
-      padding-top: 46px;
+      padding-top: 12px;
       display: flex;
       &__name {
         font-size: 16px;
@@ -199,3 +200,7 @@ a {
     }  
   }
 }
+
+// .message {
+//   height: calc(100vh - 190px);
+// }
