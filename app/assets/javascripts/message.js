@@ -1,4 +1,7 @@
 $(function(){
+
+
+
   function buildHTML(message){
     if ( message.image ) {
       var html =
@@ -68,6 +71,7 @@ $(function(){
     });
   });
 
+
   
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
@@ -90,8 +94,10 @@ $(function(){
         insertHTML += buildHTML(message)
       });
       //メッセージが入ったHTMLに、入れ物ごと追加
+
       $('.main-chat__messages').append(insertHTML);
       $('.main-chat__messages').animate({ scrollTop: $('.main-chat__messages')[0].scrollHeight});
+
       }
     })
     .fail(function() {
@@ -99,6 +105,8 @@ $(function(){
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+
   　 setInterval(reloadMessages, 7000);
+
   }
 });
