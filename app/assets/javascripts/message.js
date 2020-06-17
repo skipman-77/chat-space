@@ -6,7 +6,7 @@ $(function(){
     if ( message.image ) {
       var html =
       
-      `<div class="message">
+      `<div class="message" data-message-id=${message.id}>
           <div class="main-chat__messages__left-box">
             <div class="main-chat__messages__left-box__name">
               ${message.user_name}
@@ -25,7 +25,7 @@ $(function(){
       return html;
     } else {
       var html =
-       `<div class="message">
+       `<div class="message"  data-message-id=${message.id}>
           <div class="main-chat__messages__left-box">
             <div class="main-chat__messages__left-box__name">
               ${message.user_name}
@@ -76,6 +76,7 @@ $(function(){
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     var last_message_id = $('.message:last').data("message-id");
+    console.log(last_message_id);
     $.ajax({
       //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
       url: "api/messages",
